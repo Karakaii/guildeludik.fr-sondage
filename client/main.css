@@ -1,0 +1,190 @@
+/* -----------
+- Variables- -
+------------ */
+
+:root {
+	--main-bg-color : #751919;
+	--main-light-font: #fff;
+}
+
+/* --------
+- General -
+--------- */
+
+* {
+	font-family: 'Open Sans', sans-serif;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+.flex-center {
+	display: flex;
+	justify-content: center;
+}
+
+.flex-center-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.flex-center-column {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.clickable-icon {
+	cursor: pointer;
+	font-size: 1rem;
+}
+
+button {
+	border: 1px solid var(--main-bg-color);
+	border-radius: 7px;
+
+	padding: 9px 16px;
+
+	font-size: 0.9em;
+	font-weight: 600;
+	text-align: center;
+
+	cursor: pointer;
+
+	background-color: var(--main-bg-color);
+	color: var(--main-light-font);
+	transition: all .3s;
+}
+
+button:hover {
+	color: var(--main-bg-color);
+	background-color: var(--main-light-font);
+}
+
+input[type="text"]{
+	padding: 0.4rem;
+}
+
+.sous-titre {
+	font-size: 0.75rem;
+	color: grey;
+}
+
+/* ------
+- Title -
+------- */
+
+.title {
+	width: 100%;
+
+	margin: 0 0 5px 0;
+	padding: 0.8rem 2px;
+
+	text-align: center;
+	font-weight: 600;
+
+	background-color: var(--main-bg-color);
+	color: var(--main-light-font);
+}
+
+/* ------
+- Admin -
+------- */
+
+.admin-logout {
+	display: flex;
+	justify-content: end;
+
+	padding: 5px;
+
+	font-size: small;
+}
+
+.new-sondage-form {
+	padding: 1rem;
+}
+
+.new-sondage-form input[type="text"]{
+	width: 300px;
+	border: 1px solid var(--main-bg-color);
+}
+
+.sondage-list {
+	margin: 10px 0 0 0;
+	padding: 1rem;
+}
+
+.sondage-list table {
+	border: 1.5px solid var(--main-bg-color);
+	border-collapse: collapse;
+}
+
+.sondage-list th {
+	color: var(--main-bg-color);
+	border: 1.5px solid var(--main-bg-color);
+}
+
+.sondage-list th, td {
+	text-align: center;
+	padding: 1.5rem;
+}
+
+.datepicker {
+	cursor: pointer;
+}
+
+/* --------
+- Sondage -
+--------- */
+
+input[type=checkbox] {
+	/* Double-sized Checkboxes */
+	-ms-transform: scale(2); /* IE */
+	-moz-transform: scale(2); /* FF */
+	-webkit-transform: scale(2); /* Safari and Chrome */
+	-o-transform: scale(2); /* Opera */
+	transform: scale(2);
+	padding: 5px;
+}
+
+.sondage-table {
+	margin: 10px 0;
+	border-collapse: collapse;
+	border: 1.5px solid var(--main-bg-color);
+}
+
+.sondage-table th, td {
+	text-align: center;
+	padding: 1rem;
+}
+
+.sondage-table th {
+	color: var(--main-bg-color);
+}
+
+.sondage-table td {
+	background-color:#fafafa;
+}
+
+.sondage-table tr {
+	border: 0.5px solid rgb(201, 201, 201);
+}
+
+.sondage-table .positive-response {
+	background-color: #CDEAA1;
+	color: #38901a;
+}
+  
+.sondage-table .negative-response {
+	background-color: #ffbaba;
+	color: #ff1212;
+}
+
+/* .sondage-table .pseudo-entry-cell {
+	display: flex;
+	flex-wrap: wrap;
+} */
+
