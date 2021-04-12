@@ -39,7 +39,6 @@ body {
 
 .clickable-icon {
 	cursor: pointer;
-	font-size: 1rem;
 }
 
 button {
@@ -154,6 +153,16 @@ input[type=checkbox] {
 	margin: 10px 0;
 	border-collapse: collapse;
 	border: 1.5px solid var(--main-bg-color);
+	table-layout: fixed;
+	width: 85%;
+}
+
+.sondage-table > * {
+	font-size: 1rem;
+}
+
+.sondage-table input[type=text] {
+	width: 80%;
 }
 
 .sondage-table th, td {
@@ -183,8 +192,34 @@ input[type=checkbox] {
 	color: #ff1212;
 }
 
-/* .sondage-table .pseudo-entry-cell {
+.pseudo-entry-cell {
 	display: flex;
 	flex-wrap: wrap;
-} */
+	justify-content:space-evenly;
+	align-items: center;
+}
 
+.pseudo-entry-cell > span {
+	padding: 2px;
+}
+
+@media only screen and (max-width: 600px) {
+
+	.sondage-table > * {
+		font-size: .75rem;
+	}
+
+	.pseudo-entry-cell {
+		justify-content: center;
+	}
+
+	input[type=checkbox] {
+		/* Double-sized Checkboxes */
+		-ms-transform: scale(1.5); /* IE */
+		-moz-transform: scale(1.5); /* FF */
+		-webkit-transform: scale(1.5); /* Safari and Chrome */
+		-o-transform: scale(1.5); /* Opera */
+		transform: scale(1.5);
+		padding: 5px;
+	}
+}

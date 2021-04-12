@@ -91,7 +91,7 @@ export default function Sondage() {
             {isLoading
                 ? <div className="flex-center-center"><img src="img/spinner.gif" alt="Chargement en cours..." /></div>
                 : <div className="flex-center">
-                    <form onSubmit={submitNewEntry}>
+                    <form onSubmit={submitNewEntry} className="flex-center-column">
                         <table className="sondage-table">
                             <Header parametres={parametres} />
                             <tbody>
