@@ -17,8 +17,8 @@ export default function LoginForm({ setUser }) {
     }
 
     return (
-        <div>
-            <form onSubmit={login}>
+        <div className="flex-center">
+            <form onSubmit={login} className="login-form">
                 <label htmlFor="username">Pseudo</label>
                 <input
                     type="text"
@@ -27,6 +27,7 @@ export default function LoginForm({ setUser }) {
                     required
                     onChange={e => setUsername(e.target.value)}
                 />
+                <br />
 
                 <label htmlFor="password">Mot de Passe</label>
                 <input
@@ -36,8 +37,11 @@ export default function LoginForm({ setUser }) {
                     required
                     onChange={e => setPassword(e.target.value)}
                 />
+                <br />
+                <br />
 
-                <button type="submit">Connexion</button>
+                <div className="flex-center"><button type="submit">Connexion</button></div>
+
             </form>
         </div>
     )

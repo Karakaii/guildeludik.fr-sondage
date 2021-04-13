@@ -24,9 +24,9 @@ export default function Sondage() {
     const [sondageId, setSondageId] = useState(getParameterByName("id"))
     // Editing states
     //State whether the user is currently editing a response
-    const [isEditing, setIsEditing] = useState(false);
+    const [isEditing, setIsEditing] = useState(false)
     //State that marks the index of which response is being edited (-1 if not being edited)
-    const [editingId, setEditingId] = useState("");
+    const [editingId, setEditingId] = useState("")
 
     //useTracker to load the collections
     const { parametres, responses, isLoading } = useTracker(() => {
@@ -48,6 +48,9 @@ export default function Sondage() {
         const isLoading = false;
         return { parametres, responses, isLoading }
     });
+
+    // let editedResponse = responses.filter(response => response._id === editingId)[0] ?? { responses: [] }
+    // console.log(editedResponse)
 
     // Submit a new entry function
     const submitNewEntry = e => {
@@ -81,8 +84,9 @@ export default function Sondage() {
         }
 
         // Reset the editing states
-        setIsEditing(false);
-        setEditingId("");
+        setIsEditing(false)
+        setEditingId("")
+        // editedResponse = responses.filter(response => response._id === editingId)[0] ?? { responses: [] }
     }
 
     return (
@@ -115,7 +119,7 @@ export default function Sondage() {
                         </table>
 
                         <div className="flex-center">
-                            <button type="sumit">M'inscrire</button>
+                            <button type="sumit">{isEditing ? "Modifier" : "M'inscrire"}</button>
                         </div>
                     </form>
                 </div>

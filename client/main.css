@@ -63,12 +63,12 @@ button:hover {
 	background-color: var(--main-light-font);
 }
 
-input[type="text"]{
+input[type="text"], input[type="password"] {
 	padding: 0.4rem;
 }
 
 .sous-titre {
-	font-size: 0.75rem;
+	font-size: 0.75em;
 	color: grey;
 }
 
@@ -102,13 +102,14 @@ input[type="text"]{
 	font-size: small;
 }
 
-.new-sondage-form {
-	padding: 1rem;
+.new-sondage-form > * {
+	font-size: 16pt;
 }
 
 .new-sondage-form input[type="text"]{
-	width: 300px;
+	width: 500px;
 	border: 1px solid var(--main-bg-color);
+	font-size: 0.75em;
 }
 
 .sondage-list {
@@ -133,6 +134,12 @@ input[type="text"]{
 
 .datepicker {
 	cursor: pointer;
+}
+
+.login-form label {
+	margin: 10px 0 5px 0;
+	display: flex;
+	justify-content: center;
 }
 
 /* --------
@@ -167,7 +174,7 @@ input[type=checkbox] {
 
 .sondage-table th, td {
 	text-align: center;
-	padding: 1rem;
+	padding: 0.8rem;
 }
 
 .sondage-table th {

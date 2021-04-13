@@ -19,7 +19,7 @@ export default function Footer({ parametres, responses }) {
                         return response.responses[index]
                     }).filter(entry => entry).length
 
-                    return <th key={index}>{columnTotal}</th>
+                    return <th key={index}>{`${category}: ${columnTotal}`}</th>
                 })}
             </tr>
         </tfoot>

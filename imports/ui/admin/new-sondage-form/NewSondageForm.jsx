@@ -64,7 +64,7 @@ export default function NewSondageForm() {
     return (
         <div className="new-sondage-form">
             <form onSubmit={submitNewSondage}>
-                <div>
+                <div style={{ padding: "1rem" }}>
                     <p>Titre : </p>
                     <p className="sous-titre">Si le titre reste "Dimanche Ludik du", la date sera automatiquement ajoutée</p>
                     <input

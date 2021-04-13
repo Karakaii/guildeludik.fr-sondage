@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 // Elements
 import NewCell from './NewCell'
@@ -7,7 +7,12 @@ import NewPseudo from './NewPseudo'
 export default function NewEntry({ parametres, responses, isEditing, editingId }) {
 
     // Get the response that is being edited
-    const editedResponse = responses.filter(response => response._id === editingId)[0] ?? { responses: [] }
+    const [editedResponse, setEditedResponse] = useState(responses.filter(response => response._id === editingId)[0] ?? { responses: [] })
+
+    // Sync the prop with the state prop
+    useEffect(() => {
+        setEditedResponse(responses.filter(response => response._id === editingId)[0] ?? { responses: [] });
+    }, [editingId]);
 
     // If there is an edited response, it will be set to the values, otherwise the values will be empty
     return (
