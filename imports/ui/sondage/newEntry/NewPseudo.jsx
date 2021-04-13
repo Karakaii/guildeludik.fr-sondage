@@ -19,7 +19,7 @@ export default function NewPseudo({ isEditing, setIsEditing, updateForm }) {
                 placeholder="pseudo..."
                 required
             />
-            {isEditing && <span className="clickable-icon" onClick={stopEditing}>&#8630;</span>}
+            {isEditing && <span className="clickable-icon" style={{ padding: "10px" }} onClick={stopEditing}>&#8630;</span>}
         </td>
     )
 }
