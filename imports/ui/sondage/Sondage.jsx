@@ -55,7 +55,6 @@ export default function Sondage() {
     /* -------------------
     - Form manipulations -
     ------------------- */
-
     // Create ref for my form
     const myForm = useRef(null)
 
@@ -78,6 +77,9 @@ export default function Sondage() {
         })
     }
 
+    /* ---------------------
+    - Form submit function -
+    --------------------- */
     // Submit a new entry function
     const submitNewEntry = e => {
         e.preventDefault()
@@ -112,6 +114,9 @@ export default function Sondage() {
         updateForm("")
     }
 
+    /* -----------------
+    - Render component -
+    ----------------- */
     return (
         <div>
             <Title text={parametres.titre} />
@@ -127,6 +132,8 @@ export default function Sondage() {
                                     responses={responses}
                                     isEditing={isEditing}
                                     editingId={editingId}
+                                    setIsEditing={setIsEditing}
+                                    updateForm={updateForm}
                                 />
 
                                 {responses.map((response, index) => {

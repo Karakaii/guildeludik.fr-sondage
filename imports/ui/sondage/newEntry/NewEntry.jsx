@@ -4,8 +4,8 @@ import React from 'react';
 import NewCell from './NewCell'
 import NewPseudo from './NewPseudo'
 
-export default function NewEntry({ parametres }) {
-
+export default function NewEntry(props) {
+    const { parametres } = props
     return (
         <tr>
             {
@@ -13,11 +13,11 @@ export default function NewEntry({ parametres }) {
 
                     // Return the pseudo
                     if (index === 0) {
-                        return <NewPseudo key={index} category={category} />
+                        return <NewPseudo key={index} {...props} />
                     }
 
                     // Otherwise return a cell
-                    return <NewCell key={index} category={category} />
+                    return <NewCell key={index} />
                 })
             }
         </tr>
