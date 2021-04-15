@@ -93,6 +93,7 @@ export default function NewSondageForm() {
                     <div>
                         <p>Catégories : </p>
                         <p className="sous-titre">Ecrire chaque catégorie separée par une virgule</p>
+                        <p className="sous-titre">(Donc ne pas mettre de virgule dans les noms des catégories)</p>
                         <input
                             type="text"
                             value={categories}
