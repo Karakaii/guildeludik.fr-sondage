@@ -20,6 +20,12 @@ Meteor.methods({
         })
     },
 
+    // Method to delete a sondage from the parameteres
+    'sondage.delete'(sondageId) {
+        check(sondageId, String);
+        ParametresCollection.remove(sondageId);
+    },
+
     //Add a response to a particular sondage
     'response.insert'(sondageId, responses, refSondage) {
         check(sondageId, String);
@@ -36,17 +42,17 @@ Meteor.methods({
     },
 
     //Delete a particular response
-    'response.delete'(_id) {
-        check(_id, String);
-        ResponsesCollection.remove(_id);
+    'response.delete'(responseId) {
+        check(responseId, String);
+        ResponsesCollection.remove(responseId);
     },
 
     //Update a particular response
-    'response.update'(responseIdToEdit, responses) {
-        check(responseIdToEdit, String);
+    'response.update'(responseId, responses) {
+        check(responseId, String);
         check(responses, Array)
 
-        ResponsesCollection.update(responseIdToEdit,
+        ResponsesCollection.update(responseId,
             {
                 $set:
                     { responses: responses }

@@ -1,10 +1,22 @@
 import React from 'react'
 import { Meteor } from 'meteor/meteor';
 
-export default function SondageList({ parametres }) {
+// Function to communicate with the backend
+import { deleteSondage } from '../../general/helper-functions/sondageMethods'
+
+export default function SondageList({ parametres, responses }) {
     const url = Meteor.absoluteUrl()
 
-    //Get a date object in to a dd/mm/yyyy string
+    const deleteSurvey = sondageParametres => {
+
+        // Check that the user really wants to delete the sondage
+        if (confirm("Êtes vous sûr de vouloir supprimer ce sondage?")) {
+            // If so, delete this sondage
+            deleteSondage(sondageParametres, responses)
+        }
+    }
+
+    // Get a date object in to a dd/mm/yyyy string
     const formattedDate = (d) => {
         let month = String(d.getMonth() + 1);
         let day = String(d.getDate());
@@ -23,6 +35,7 @@ export default function SondageList({ parametres }) {
                     <tr>
                         <th>Titre</th>
                         <th>Date</th>
+                        <th>#Réponses</th>
                         <th>Lien</th>
                         <th>iframe</th>
                     </tr>
@@ -31,8 +44,12 @@ export default function SondageList({ parametres }) {
                     {parametres.map((sondage, index) => {
                         return (
                             <tr key={index}>
-                                <td>{sondage.titre}</td>
+                                <td className="flex-center-center">
+                                    <button style={{ padding: "4px 8px", marginRight: "5px" }} onClick={() => deleteSurvey(sondage)}>x</button>
+                                    {sondage.titre}
+                                </td>
                                 <td>{formattedDate(sondage.date)}</td>
+                                <td>{responses.filter(response => response.sondageId === sondage.sondageId).length}</td>
                                 <td><a href={url + "sondage?id=" + sondage.sondageId} target="_blank">lien</a></td>
                                 <td><span className="clickable-icon" onClick={() => { navigator.clipboard.writeText(`<iframe src=${url + "sondage?id=" + sondage.sondageId}></iframe>`) }}>&#x1F4CB;</span></td>
                             </tr>
