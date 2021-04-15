@@ -17,8 +17,11 @@ export default function PseudoEntry({ responseId, pseudo, setIsEditing, setEditi
     return (
         <td className="pseudo-entry-cell">
             <span style={{ minWidth: "0" }}>{pseudo}</span>
-            <span className="clickable-icon" onClick={updateEditing}>&#9998;</span>
-            <span className="clickable-icon" onClick={() => { deleteResponse(responseId) }}><i className="fa fa-trash-o"></i></span>
+            <div className="pseudo-entry-cell">
+                <span className="clickable-icon" onClick={updateEditing}>&#9998;</span>
+                <span className="clickable-icon" onClick={() => { deleteResponse(responseId) }}><i className="fa fa-trash-o"></i></span>
+            </div>
         </td>
     )
 }
+

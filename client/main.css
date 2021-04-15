@@ -203,12 +203,12 @@ input[type=checkbox] {
 .pseudo-entry-cell {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content:space-evenly;
+	justify-content:center;
 	align-items: center;
 }
 
 .pseudo-entry-cell > span {
-	padding: 2px;
+	margin: 2px 5px;
 }
 
 @media only screen and (max-width: 600px) {
