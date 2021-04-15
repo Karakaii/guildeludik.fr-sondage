@@ -166,6 +166,7 @@ input[type=checkbox] {
 
 .sondage-table > * {
 	font-size: 1rem;
+	overflow-wrap: break-word;
 }
 
 .sondage-table input[type=text] {
