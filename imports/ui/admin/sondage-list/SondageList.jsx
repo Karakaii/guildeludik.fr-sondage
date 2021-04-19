@@ -28,6 +28,8 @@ export default function SondageList({ parametres, responses }) {
         return `${day}/${month}/${year}`;
     }
 
+
+
     return (
         <div className="sondage-list">
             <table>
@@ -42,6 +44,15 @@ export default function SondageList({ parametres, responses }) {
                 </thead>
                 <tbody>
                     {parametres.map((sondage, index) => {
+                        // Prepare the iframe text
+                        const iframeText = `<iframe 
+                        style="
+                        height:150vh;
+                        border: 1px solid #751919;
+                        "
+                        src=${url + "sondage?id=" + sondage.sondageId.replaceAll(" ", "%20")}>
+                        </iframe>`
+
                         return (
                             <tr key={index}>
                                 <td className="flex-center-center">
@@ -51,7 +62,7 @@ export default function SondageList({ parametres, responses }) {
                                 <td>{formattedDate(sondage.date)}</td>
                                 <td>{responses.filter(response => response.sondageId === sondage.sondageId).length}</td>
                                 <td><a href={url + "sondage?id=" + sondage.sondageId} target="_blank">lien</a></td>
-                                <td><span className="clickable-icon" onClick={() => { navigator.clipboard.writeText(`<iframe src=${url + "sondage?id=" + sondage.sondageId}></iframe>`) }}>&#x1F4CB;</span></td>
+                                <td><span className="clickable-icon" onClick={() => { navigator.clipboard.writeText(iframeText) }}>&#x1F4CB;</span></td>
                             </tr>
                         )
                     })}
