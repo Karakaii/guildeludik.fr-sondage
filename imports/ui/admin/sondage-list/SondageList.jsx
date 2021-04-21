@@ -47,7 +47,7 @@ export default function SondageList({ parametres, responses }) {
                         // Prepare the iframe text
                         const iframeText = `<iframe 
                         style="
-                        height:150vh;
+                        height:200vh;
                         border: 1px solid #751919;
                         "
                         src=${url + "sondage?id=" + sondage.sondageId.replaceAll(" ", "%20")}>
