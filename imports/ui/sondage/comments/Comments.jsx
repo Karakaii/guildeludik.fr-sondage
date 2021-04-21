@@ -12,10 +12,10 @@ export default function Comments({ sondageId, comments }) {
     return (
         <div className="comments-master-holder flex-center-column">
             <p className="comment-title">Commentaires :</p>
-            <CommentForm sondageId={sondageId} comments={comments} />
             {uniqThreadIds.map((threadId, index) => {
                 return <CommentThread key={index} sondageId={sondageId} comments={comments} threadId={threadId} />
             })}
+            <CommentForm sondageId={sondageId} comments={comments} />
         </div>
     )
 }
