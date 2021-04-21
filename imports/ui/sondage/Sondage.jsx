@@ -8,6 +8,7 @@ import { getParameterByName } from '../general/helper-functions/getParameterByNa
 import { useTracker } from 'meteor/react-meteor-data';
 import { ParametresCollection } from '../../api/ParametresCollection';
 import { ResponsesCollection } from '../../api/ResponsesCollection';
+import { CommentsCollection } from '../../api/CommentsCollection'
 
 // Function to communicate with the backend
 import { insertResponse, updateResponse } from '../general/helper-functions/sondageMethods'
@@ -18,6 +19,7 @@ import NewEntry from './newEntry/NewEntry';
 import Row from './row/Row';
 import Footer from './footer/Footer';
 import Title from '../general/title/Title';
+import Comments from './comments/Comments';
 
 export default function Sondage() {
     // Sondage id state
@@ -32,24 +34,26 @@ export default function Sondage() {
     - Getting the data -
     ------------------ */
     // useTracker to load the collections
-    const { parametres, responses, isLoading } = useTracker(() => {
+    const { parametres, responses, comments, isLoading } = useTracker(() => {
         // What to return if there is no data available
-        const noDataAvailable = { parametres: [], responses: [] };
+        const noDataAvailable = { parametres: [], responses: [], comments: [] };
 
         // Subscribe the user to the tasks they can get
-        const handlerParametres = Meteor.subscribe('parametres');
-        const handlerResponses = Meteor.subscribe('responses');
+        const handlerParametres = Meteor.subscribe('parametres')
+        const handlerResponses = Meteor.subscribe('responses')
+        const handlerComments = Meteor.subscribe('comments')
 
         // The handler takes some time to load, whilst it is not ready, return no data and set isLoading to true
-        if (!handlerParametres.ready() || !handlerResponses.ready()) {
-            return { ...noDataAvailable, isLoading: true };
+        if (!handlerParametres.ready() || !handlerResponses.ready() || !handlerComments.ready()) {
+            return { ...noDataAvailable, isLoading: true }
         }
 
         // Returning the information once the handlers have loaded
-        const parametres = ParametresCollection.find({ sondageId: { $eq: sondageId } }).fetch()[0];
-        const responses = ResponsesCollection.find({ sondageId: { $eq: sondageId } }).fetch();
+        const parametres = ParametresCollection.find({ sondageId: { $eq: sondageId } }).fetch()[0]
+        const responses = ResponsesCollection.find({ sondageId: { $eq: sondageId } }).fetch()
+        const comments = CommentsCollection.find({ sondageId: { $eq: sondageId } }, { sort: { date: +1 } }).fetch()
         const isLoading = false;
-        return { parametres, responses, isLoading }
+        return { parametres, responses, comments, isLoading }
     });
 
     /* -------------------
@@ -122,7 +126,8 @@ export default function Sondage() {
             <Title text={parametres.titre} />
             {isLoading
                 ? <div className="flex-center-center"><img src="img/spinner.gif" alt="Chargement en cours..." /></div>
-                : <div className="flex-center">
+                :
+                <div className="sondage-n-com-holder">
                     <form onSubmit={submitNewEntry} className="flex-center-column" ref={myForm}>
                         <table className="sondage-table">
                             <Header parametres={parametres} />
@@ -153,6 +158,7 @@ export default function Sondage() {
                             <button type="submit">{isEditing ? "Modifier" : "M'inscrire"}</button>
                         </div>
                     </form>
+                    <Comments sondageId={sondageId} comments={comments} />
                 </div>
             }
         </div>

@@ -1,19 +1,24 @@
-import { Meteor } from 'meteor/meteor';
+import { Meteor } from 'meteor/meteor'
 
 //Import collection
-import { ResponsesCollection } from '../imports/api/ResponsesCollection';
-import { ParametresCollection } from '../imports/api/ParametresCollection';
+import { ResponsesCollection } from '../imports/api/ResponsesCollection'
+import { ParametresCollection } from '../imports/api/ParametresCollection'
+import { CommentsCollection } from '../imports/api/CommentsCollection'
 
 //Import methods
 import '../imports/api/methods';
 
 //Publish collections
 Meteor.publish('parametres', function publishTasks() {
-	return ParametresCollection.find({});
+	return ParametresCollection.find({})
 });
 
 Meteor.publish('responses', function publishTasks() {
-	return ResponsesCollection.find({});
+	return ResponsesCollection.find({})
+});
+
+Meteor.publish('comments', function publishTasks() {
+	return CommentsCollection.find({})
 });
 
 //Manually setting the initial elements of a collection on startup:

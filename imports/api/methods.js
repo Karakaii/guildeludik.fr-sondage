@@ -1,15 +1,16 @@
-import { check } from 'meteor/check';
-import { ParametresCollection } from './ParametresCollection';
-import { ResponsesCollection } from './ResponsesCollection';
+import { check } from 'meteor/check'
+import { CommentsCollection } from './CommentsCollection'
+import { ParametresCollection } from './ParametresCollection'
+import { ResponsesCollection } from './ResponsesCollection'
 
 Meteor.methods({
 
-    //Method to add a new sondage to the list of parametres
+    // Method to add a new sondage to the list of parametres
     'sondage.insert'(sondageId, titre, date, categories) {
-        check(sondageId, String);
-        check(titre, String);
-        check(date, Date);
-        check(categories, Array);
+        check(sondageId, String)
+        check(titre, String)
+        check(date, Date)
+        check(categories, Array)
 
         ParametresCollection.insert({
             sondageId: sondageId,
@@ -22,15 +23,15 @@ Meteor.methods({
 
     // Method to delete a sondage from the parameteres
     'sondage.delete'(sondageId) {
-        check(sondageId, String);
-        ParametresCollection.remove(sondageId);
+        check(sondageId, String)
+        ParametresCollection.remove(sondageId)
     },
 
-    //Add a response to a particular sondage
+    // Add a response to a particular sondage
     'response.insert'(sondageId, responses, refSondage) {
-        check(sondageId, String);
-        check(responses, Array);
-        check(refSondage, String);
+        check(sondageId, String)
+        check(responses, Array)
+        check(refSondage, String)
 
 
         ResponsesCollection.insert({
@@ -41,15 +42,15 @@ Meteor.methods({
         })
     },
 
-    //Delete a particular response
+    // Delete a particular response
     'response.delete'(responseId) {
-        check(responseId, String);
-        ResponsesCollection.remove(responseId);
+        check(responseId, String)
+        ResponsesCollection.remove(responseId)
     },
 
-    //Update a particular response
+    // Update a particular response
     'response.update'(responseId, responses) {
-        check(responseId, String);
+        check(responseId, String)
         check(responses, Array)
 
         ResponsesCollection.update(responseId,
@@ -58,4 +59,20 @@ Meteor.methods({
                     { responses: responses }
             })
     },
-});
+
+    // Add a comment
+    'comment.insert'(sondageId, pseudo, comment, threadId) {
+        check(sondageId, String)
+        check(pseudo, String)
+        check(comment, String)
+        check(threadId, String)
+
+        CommentsCollection.insert({
+            sondageId,
+            pseudo,
+            comment,
+            threadId,
+            createdAt: new Date()
+        })
+    }
+})

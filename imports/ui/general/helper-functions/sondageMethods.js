@@ -26,5 +26,9 @@ export const deleteSondage = (sondageParametres, responses) => {
 
     // Delete the sondage parametres
     Meteor.call('sondage.delete', sondageParametres._id)
+}
 
+// Add comment
+export const insertComment = (sondageId, pseudo, comment, threadId) => {
+    Meteor.call('comment.insert', sondageId, pseudo, comment, threadId)
 }

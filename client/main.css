@@ -63,8 +63,13 @@ button:hover {
 	background-color: var(--main-light-font);
 }
 
-input[type="text"], input[type="password"] {
+input[type="text"], input[type="password"], textarea {
 	padding: 0.4rem;
+}
+
+input[type="text"], textarea {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 0.8rem;
 }
 
 .sous-titre {
@@ -165,7 +170,8 @@ input[type=checkbox] {
 	border-collapse: collapse;
 	border: 1.5px solid var(--main-bg-color);
 	table-layout: fixed;
-	width: 85%;
+	width: 100%;
+	max-width: 1000px;
 }
 
 .sondage-table > * {
@@ -234,4 +240,113 @@ input[type=checkbox] {
 		transform: scale(1.5);
 		padding: 5px;
 	}
+}
+
+/* ---------
+- Comments -
+---------- */
+
+.sondage-n-com-holder {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.sondage-n-com-holder > * {
+	width: 85%;
+}
+
+.comments-master-holder {
+	margin-top: 5px;
+}
+
+.comments-master-holder > p {
+	margin: 5px 0;
+}
+.comments-master-holder > * {
+	width: 100%;
+	max-width: 1000px;
+}
+
+.comment-title {
+	color: var(--main-bg-color);
+	text-align: left;
+	font-size: 1.2rem;
+}
+
+.comment-form-entry {
+	width: calc(100% - 0.8rem);
+	max-width: calc(800px - 0.8rem);
+	margin: 1px 0;
+}
+
+.comment-form-button {
+	width: 100%;
+	max-width: 800px;
+	margin: 5px 0;
+}
+
+.comment-thread {
+	margin-bottom: 5px;
+	border: 1px solid #888888;
+}
+
+.comment-thread-comments {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+
+.comment-thread-comments > * {
+	width: 100%;
+}
+
+.comment-thread-form > * {
+	width: 95%;
+}
+
+.comment-thread-reply-holder {
+	margin: 0;
+	text-align: end;
+	padding: 3px;
+}
+
+.comment-thread-reply {
+	color: var(--main-bg-color);
+	text-align: end;
+	font-size: 0.7rem;
+
+	cursor: pointer;
+}
+
+.comment {
+	border: 1px solid #eaeaea;
+	background-color: #fafafa;
+	z-index: -1;
+}
+
+.comment-holder {
+	margin: 0.6rem;
+}
+
+.comment-info {
+	display: flex;
+	justify-content: space-between;
+
+	margin: 0 0 5px 0;
+
+	color: #666;
+}
+
+.comment-pseudo {
+	font-size: 0.8rem;
+}
+
+.comment-date {
+	font-size: 0.6rem;
+}
+
+.comment-text {
+	margin: 0;
+	overflow-wrap: break-word;
 }
