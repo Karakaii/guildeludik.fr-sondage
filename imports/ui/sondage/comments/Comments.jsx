@@ -9,7 +9,6 @@ export default function Comments({ sondageId, comments }) {
     // Use the set type to get only the unique ids
     const uniqThreadIds = [...new Set(threadIds)]
 
-    console.log(uniqThreadIds)
     return (
         <div className="comments-master-holder flex-center-column">
             <p className="comment-title">Commentaires :</p>
