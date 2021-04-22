@@ -51,7 +51,7 @@ export default function CommentForm({ sondageId, comments, threadId = "" }) {
 
     return (
         <form onSubmit={addComment}>
-            <p>Ajouter {threadId === "" ? "un commentaire" : "une réponse"} :</p>
+            <p className="comment-form-title">Ajouter {threadId === "" ? "un commentaire" : "une réponse"} :</p>
             <input
                 type="text"
                 placeholder="pseudo..."

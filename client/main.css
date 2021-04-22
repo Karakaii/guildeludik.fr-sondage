@@ -306,6 +306,10 @@ input[type=checkbox] {
 	font-size: 1.2rem;
 }
 
+.comment-form-title {
+	margin: 7px 0;
+}
+
 .comment-form-entry {
 	width: calc(100% - 0.8rem);
 	max-width: calc(800px - 0.8rem);
