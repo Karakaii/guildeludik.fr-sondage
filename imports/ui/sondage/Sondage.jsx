@@ -153,10 +153,6 @@ export default function Sondage() {
                             </tbody>
                             <Footer parametres={parametres} responses={responses} />
                         </table>
-
-                        <div className="flex-center">
-                            <button type="submit">{isEditing ? "Modifier" : "M'inscrire"}</button>
-                        </div>
                     </form>
                     <Comments sondageId={sondageId} comments={comments} />
                 </div>

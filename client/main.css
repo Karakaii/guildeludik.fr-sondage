@@ -221,6 +221,38 @@ input[type=checkbox] {
 	margin: 2px 5px;
 }
 
+.sondage-table .new-entry-row {
+	border-bottom: none;
+}
+
+.sondage-table .new-entry-submit-row {
+	border-top: none;
+}
+
+.new-entry-row {
+	border-bottom: none;
+}
+
+.new-entry-row > td {
+	border-bottom: none;
+}
+
+.new-entry-submit-row {
+	border-top: none;
+}
+
+.submit-button-cell {
+	width: 100%; 
+	display: table-cell;
+	padding-top: 0;
+	border-top: none;
+}
+
+.new-entry-submit-button {
+	width: 100%;
+	max-width: 150px;
+}
+
 @media only screen and (max-width: 600px) {
 
 	.sondage-table > * {
