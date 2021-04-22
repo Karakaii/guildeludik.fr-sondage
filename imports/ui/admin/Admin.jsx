@@ -38,7 +38,7 @@ export default function Admin() {
         }
 
         // Returning the parametres once they are loaded
-        const parametres = ParametresCollection.find({}, { sort: { date: +1 } }).fetch()
+        const parametres = ParametresCollection.find({}, { sort: { date: -1 } }).fetch()
         const responses = ResponsesCollection.find({}).fetch();
         const isLoading = false;
         return { parametres, responses, isLoading }
